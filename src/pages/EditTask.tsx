@@ -55,7 +55,7 @@ export const EditTask = () => {
                 <label className={`flex flex-col font-semibold gap-1 ${theme.status ? '' : 'text-gray-300'}`}>
                     Titulo
                     <input
-                        className={`input input-primary font-medium ${theme.status ? '' : 'bg-gray-700 text-gray-300'}`}
+                        className={`bg-white input input-primary font-medium ${theme.status ? '' : 'bg-gray-700 text-gray-300'}`}
                         type="text"
                         name="title"
                         placeholder="Digite o titulo"
@@ -68,7 +68,7 @@ export const EditTask = () => {
                 <label className={`flex flex-col font-semibold gap-1 ${theme.status ? '' : 'text-gray-300'}`}>
                     Descrição
                     <textarea 
-                        className={`textarea textarea-primary font-medium ${theme.status ? '' : 'text-gray-300 bg-gray-700'}`}
+                        className={`bg-white textarea textarea-primary font-medium ${theme.status ? '' : 'text-gray-300 bg-gray-700'}`}
                         name="description"
                         placeholder="Digite a descrição da tarefa"
                         value={description}

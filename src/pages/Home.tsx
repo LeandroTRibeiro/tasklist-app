@@ -87,7 +87,7 @@ export const Home = () => {
                         
                         <label className="input-group">
                             <input
-                                className={`input input-bordered input-primary w-full max-w-xs ${theme.status ? '' : 'bg-gray-800 text-gray-300'}`}
+                                className={`bg-white input input-bordered input-primary w-full max-w-xs ${theme.status ? '' : 'bg-gray-800 text-gray-300'}`}
                                 type="text"
                                 name="query"
                                 placeholder="Pesquisar"
