@@ -41,7 +41,7 @@ export const NewTask = () => {
     }
 
     return(
-        <div className={`flex justify-center pt-10 pb-10 ${theme.status ? '' : 'bg-gray-800'}`}>
+        <div className={`bg-white flex justify-center pt-10 pb-10 ${theme.status ? '' : 'bg-gray-800'}`}>
             
             <form className={`border-2 rounded-lg py-5 px-10 shadow-xl flex flex-col gap-5 ${theme.status ? '' : 'bg-gray-700 border-gray-800'}`}>
                 <div className="flex flex-col items-center gap-3"> 
