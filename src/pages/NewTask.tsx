@@ -2,12 +2,17 @@ import React, { useState } from "react"
 import { Api } from "../api";
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from "../redux/hooks/useAppSelector";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../redux/reducers/loading";
 
 export const NewTask = () => {
 
     const navigate = useNavigate();
 
     const theme = useAppSelector(state => state.theme);
+    const loading = useAppSelector(state => state.loading);
+
+    const dispatch = useDispatch();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -37,6 +42,7 @@ export const NewTask = () => {
     }
 
     const handleCancel = () => {
+        dispatch(setLoading(true));
         navigate('/');
     }
 

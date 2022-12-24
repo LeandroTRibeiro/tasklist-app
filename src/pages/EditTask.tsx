@@ -3,6 +3,8 @@ import { Api } from "../api";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppSelector } from "../redux/hooks/useAppSelector";
 import { ListType } from "../types/types";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../redux/reducers/loading";
 
 
 export const EditTask = () => {
@@ -10,8 +12,10 @@ export const EditTask = () => {
     const navigate = useNavigate();
 
     const theme = useAppSelector(state => state.theme);
+    const loading = useAppSelector(state => state.loading)
 
     const params = useParams();
+    const dispatch = useDispatch();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -53,6 +57,7 @@ export const EditTask = () => {
     }
 
     const handleCancel = () => {
+        dispatch(setLoading(true));
         navigate('/');
     }
 
