@@ -97,10 +97,10 @@ export const Home = () => {
                             <span className={theme.status ? "btn btn-primary" : "btn btn-primary text-black"} onClick={handleSearch}>Pesquisar</span>
                         </label>
                         
-                        {reverse.status &&
+                        {!reverse.status &&
                             <button className={theme.status ? "btn btn-primary" : "btn btn-primary text-black"} onClick={handleReverse}>Ordenar por mais novas</button>
                         }
-                        {!reverse.status &&
+                        {reverse.status &&
                             <button className={theme.status ? "btn btn-primary" : "btn btn-primary text-black"} onClick={handleReverse}>Ordenar por mais antigas</button>
                         }
                     </div>
