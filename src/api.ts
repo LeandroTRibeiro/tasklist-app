@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASEAPI = 'https://api-tasklist.onrender.com';
+// const BASEAPI = 'http://localhost:2000';
 
 export const Api = {
     getAllTasks: async () => {
@@ -39,6 +40,11 @@ export const Api = {
     },
     searchTask: async (query: string) => {
         const response = await axios.get(`${BASEAPI}/task/${query}`);
+
+        return response.data;
+    },
+    getOne: async (_id: string) => {
+        const response = await axios.get(`${BASEAPI}/task/show/${_id}`);
 
         return response.data;
     }
