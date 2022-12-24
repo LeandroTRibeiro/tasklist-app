@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Api } from "../api";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppSelector } from "../redux/hooks/useAppSelector";
+import { ListType } from "../types/types";
+
 
 export const EditTask = () => {
 
@@ -14,6 +16,16 @@ export const EditTask = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [disable, setDisable] = useState(false);
+    const [task, setTask] = useState<ListType>();
+
+    useEffect(() => {
+        const getOne = async () => {
+            const response = await Api.getOne(params.id as string);
+
+            setTask(response.task);
+        }
+        getOne();
+    });
 
     const changeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -45,7 +57,7 @@ export const EditTask = () => {
     }
 
     return(
-        <div className={`bg-white flex justify-center pt-10 pb-10 ${theme.status ? '' : 'bg-gray-800'}`}>
+        <div className={`flex justify-center pt-10 pb-10 ${theme.status ? '' : 'bg-gray-800'}`}>
             
             <form className={`border-2 rounded-lg py-5 px-10 shadow-xl flex flex-col gap-5 ${theme.status ? '' : 'bg-gray-700 border-gray-800'}`}>
                 <div className="flex flex-col items-center gap-3"> 
@@ -55,10 +67,10 @@ export const EditTask = () => {
                 <label className={`flex flex-col font-semibold gap-1 ${theme.status ? '' : 'text-gray-300'}`}>
                     Titulo
                     <input
-                        className={`bg-white input input-primary font-medium ${theme.status ? '' : 'bg-gray-700 text-gray-300'}`}
+                        className={`input input-primary font-medium ${theme.status ? '' : 'bg-gray-700 text-gray-300'}`}
                         type="text"
                         name="title"
-                        placeholder="Digite o titulo"
+                        placeholder={task?.title}
                         value={title}
                         onChange={changeTitle}
                         disabled={disable}
@@ -68,9 +80,9 @@ export const EditTask = () => {
                 <label className={`flex flex-col font-semibold gap-1 ${theme.status ? '' : 'text-gray-300'}`}>
                     Descrição
                     <textarea 
-                        className={`bg-white textarea textarea-primary font-medium ${theme.status ? '' : 'text-gray-300 bg-gray-700'}`}
+                        className={`textarea textarea-primary font-medium ${theme.status ? '' : 'text-gray-300 bg-gray-700'}`}
                         name="description"
-                        placeholder="Digite a descrição da tarefa"
+                        placeholder={task?.description}
                         value={description}
                         onChange={changeDescription}
                         disabled={disable}

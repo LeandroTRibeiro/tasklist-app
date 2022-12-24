@@ -79,7 +79,7 @@ export const Home = () => {
     }
 
     return(
-        <div className={`bg-white flex justify-center pt-10 pb-10 ${theme.status ? '' : 'bg-gray-800'}`}>
+        <div className={`flex justify-center pt-10 pb-10 ${theme.status ? '' : 'bg-gray-800'}`}>
             <div className="mx:w-[280px] ms:w-[325px] mg:w-[425px] tb:w-[768px] w-[1024px] flex flex-col items-center gap-10">
                 <div className="w-full">
                     <div className="flex gap-5 mg:flex-col">
@@ -87,7 +87,7 @@ export const Home = () => {
                         
                         <label className="input-group">
                             <input
-                                className={`bg-white input input-bordered input-primary w-full max-w-xs ${theme.status ? '' : 'bg-gray-800 text-gray-300'}`}
+                                className={`input input-bordered input-primary w-full max-w-xs ${theme.status ? '' : 'bg-gray-800 text-gray-300'}`}
                                 type="text"
                                 name="query"
                                 placeholder="Pesquisar"
