@@ -11,5 +11,6 @@ export type PropsItem = {
         title: string,
         description: string,
         done: boolean
-    }
+    },
+    onDone: ( _id: string, done: boolean, title: string ) => void
 }

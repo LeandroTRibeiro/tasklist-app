@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setReverse } from "../redux/reducers/reverseList";
 import { TaskCard } from "../components/TaskCard";
 import { setLoading } from "../redux/reducers/loading";
+import { SearchAlert } from "../components/SearchAlert";
 
 export const Home = () => {
 
@@ -19,7 +20,6 @@ export const Home = () => {
     const dispatch = useDispatch();
 
     const [list, setList] = useState<ListType[]>([]);
-    const [reverseList, setReverseList] = useState<ListType[]>([]);
 
     const [inputSearch, setInputSearch] = useState('');
     const [searchList, setSearchList] = useState<ListType[]>([]);
@@ -33,15 +33,41 @@ export const Home = () => {
             dispatch(setLoading(false));
             setSearch(false);
         }
-        const loadListTwo = async () => {
-            const response = await Api.getAllTasks();
-            setReverseList(response.tasks.reverse());
-            dispatch(setLoading(false));
-            setSearch(false);
-        }
+
         loadList();
-        loadListTwo();
-    },[loading]);
+
+    },[]);
+
+    const reverseList = [...list].reverse();
+
+    const handleDoneChange = async (_id: string, done: boolean, title: string) => {
+
+        let newDone: boolean;
+
+        if(done) {
+            newDone = false;
+        } else {
+            newDone = true;
+        }
+
+        const json = await Api.updateDone(_id, title, newDone);
+
+        if(json.error) {
+            alert('erro');
+        } else {
+
+            const changeDone = [...list];
+            changeDone.map((item) => {
+                if(item._id === _id) {
+                    item.done = newDone;
+                    setList(changeDone);
+                };
+            });
+            
+           // achar o item que mudou o status done na lista, copiar a lista com o novo estatus e depois setar o novo estado da lista
+        }
+        
+    };
 
     const handleAddTask = () => {
         navigate('/newtask');
@@ -115,33 +141,22 @@ export const Home = () => {
                     {reverse.status &&
                         <>
                         {search && errorSearch &&
-                            <div className="alert alert-error shadow-lg">
-                                <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                <span>Não encontramos nenhuma tarefa!</span>
-                                </div>
-                            </div>
+                            <SearchAlert />
                         }
 
                         {search && !errorSearch &&
                             <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
                                 {searchList.map((item) => (
-                                    <TaskCard key={item._id} data={item} />
+                                    <TaskCard key={item._id} data={item} onDone={handleDoneChange}/>
                                 ))}
                             </div>
                         }
                     
                         <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
                             {reverseList.map((item) => (
-                                <>
-                                {!item.done &&
-                                    <TaskCard key={item._id} data={item} />
-                                }
-                                {item.done &&
-                                    <TaskCard key={item._id} data={item} />
-                                }
+                            
+                                <TaskCard key={item._id} data={item} onDone={handleDoneChange} />
 
-                                </>
                             ))}
                         </div>
                         </>
@@ -150,31 +165,21 @@ export const Home = () => {
                     {!reverse.status &&
                         <>
                         {search && errorSearch &&
-                            <div className="alert alert-error shadow-lg">
-                                <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                <span>Não encontramos nenhuma tarefa!</span>
-                                </div>
-                            </div>
+                            <SearchAlert />
                         }
 
                         {search && !errorSearch &&
                             <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
                                 {searchList.map((item) => (
-                                    <TaskCard key={item._id} data={item} />
+                                    <TaskCard key={item._id} data={item} onDone={handleDoneChange}/>
                                 ))}
                             </div>
                         }
                         <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
                             {list.map((item) => (
-                                <>
-                                {item.done &&
-                                    <TaskCard key={item._id} data={item} />
-                                }
-                                {!item.done &&
-                                    <TaskCard key={item._id} data={item} />
-                                }
-                                </>
+
+                                <TaskCard key={item._id} data={item} onDone={handleDoneChange}/>
+
                             ))}
                         </div>
                         </>
