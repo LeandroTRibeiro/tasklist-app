@@ -12,7 +12,6 @@ export const EditTask = () => {
     const navigate = useNavigate();
 
     const theme = useAppSelector(state => state.theme);
-    const loading = useAppSelector(state => state.loading)
 
     const params = useParams();
     const dispatch = useDispatch();
@@ -51,6 +50,7 @@ export const EditTask = () => {
             setDisable(false);
             alert(json.error);
         } else {
+            dispatch(setLoading(true));
             navigate('/');
         }
 

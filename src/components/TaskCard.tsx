@@ -12,31 +12,14 @@ export const TaskCard = (props: PropsItem) => {
 
     const navigate = useNavigate();
 
-    // const changeDone = async (_id: string, title: string, done: boolean) => {
-
-    //     let newDone: boolean;
-
-    //     if(done) {
-    //         newDone = false;
-    //     } else {
-    //         newDone = true;
-    //     }
-
-    //     const json = await Api.updateDone(_id, title, newDone);
-
-    //     if(json.error) {
-    //         alert('erro');
-    //     } else {
-    //         // dispatch(setLoading(true));
-    //     }
-    // };
-
     const handleEdit = (id: string) => {
         navigate(`/edit/${id}`);
     }
 
     const handleDeleteTask = async (id: string) => {
         const json = await Api.deleteTask(id);
+
+        
         if(json.error) {
             alert('Erro ao remover tarefa');
         } else {

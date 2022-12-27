@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react"
 import { Api } from "../api";
 import { ListType } from "../types/types";
-import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from "../redux/hooks/useAppSelector";
 import { useDispatch } from "react-redux";
 import { setReverse } from "../redux/reducers/reverseList";
 import { TaskCard } from "../components/TaskCard";
 import { setLoading } from "../redux/reducers/loading";
 import { SearchAlert } from "../components/SearchAlert";
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
-
-    const navigate = useNavigate();
 
     const reverse = useAppSelector(state => state.reverseList);
     const loading = useAppSelector(state => state.loading);
@@ -36,7 +34,7 @@ export const Home = () => {
 
         loadList();
 
-    },[]);
+    },[loading]);
 
     const reverseList = [...list].reverse();
 
@@ -64,15 +62,9 @@ export const Home = () => {
                 };
             });
             
-           // achar o item que mudou o status done na lista, copiar a lista com o novo estatus e depois setar o novo estado da lista
         }
         
     };
-
-    const handleAddTask = () => {
-        navigate('/newtask');
-    }
-
 
     const handleReverse = () => {
 
@@ -109,7 +101,7 @@ export const Home = () => {
             <div className="mx:w-[280px] ms:w-[325px] mg:w-[425px] tb:w-[768px] w-[1024px] flex flex-col items-center gap-10">
                 <div className="w-full">
                     <div className="flex gap-5 mg:flex-col">
-                        <button className={` btn btn-primary ${theme.status ? '' : 'text-black'}`} onClick={handleAddTask}>Adicionar Tarefa</button>
+                        <Link to='/newtask' className={` btn btn-primary ${theme.status ? '' : 'text-black'}`}>Adicionar Tarefa</Link>
                         
                         <label className="input-group">
                             <input
