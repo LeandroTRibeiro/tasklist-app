@@ -10,7 +10,6 @@ export const NewTask = () => {
     const navigate = useNavigate();
 
     const theme = useAppSelector(state => state.theme);
-    const loading = useAppSelector(state => state.loading);
 
     const dispatch = useDispatch();
 
@@ -36,6 +35,7 @@ export const NewTask = () => {
             setDisable(false);
             alert(json.error);
         } else {
+            dispatch(setLoading(true));
             navigate('/');
         }
 
