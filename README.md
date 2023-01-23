@@ -6,8 +6,8 @@
  <a href="#objetivo">Objetivo</a> •
  <a href="#tecnologias">Tecnologias</a> •
  <a href="#implantacao">Implantação</a> •
- <a href="#Features">Features</a> • 
- <a href="#licenc-a">Licença</a> • 
+ <a href="#funcionalidades">Funcionalidades</a> • 
+ <a href="#licenca">Licença</a> • 
  <a href="#autor">Autor</a>
 </p>
 
@@ -18,18 +18,17 @@
 <h2 id="demo">🕹️ Demo</h2>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cff2323a-f213-4823-a101-0d192876fd4d/deploy-status)](https://app.netlify.com/sites/inspiring-syrniki-2b818f/deploys)
-<br><a href="inspiring-syrniki-2b818f.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
-<br><a href="https://github.com/LeandroTRibeiro/api-tasklist" target="_blank">Veja também o repositório da minha API usada neste projeto clicando aqui!</a>
+<br><a href="https://inspiring-syrniki-2b818f.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
 
 <h2 id="objetivo">📖 Objetivo</h2>
-<p>Objetivo principal da crianção desta aplicação foi testar minhas habilidades no Backend e Frontend criando um CRUD com todas suas funcionalidades.</p>
+<p>Objetivo principal deste projeto foi a criação de um Backend e Frontend que tivésse todas as funcionalidades de um CRUD.</p>
 
 <h2 id="tecnologias">🛠 Tecnologias</h2>
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Axios](https://axios-http.com/)
 - [React Router Dom](https://reactrouter.com/en/main)
 - [React Redux](https://react-redux.js.org/)
@@ -38,13 +37,55 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 > Veja o arquivo  [package.json](https://github.com/LeandroTRibeiro/tasklist-app/blob/main/package.json)
 
-<h2 id="implantacao">📦 Implantação<h2>
+<h2 id="implantacao">📦 Implantação</h2>
 
-<h2 id="Features">Features</h2>
+Este projeto é dividio em duas partes:
 
-- [ ] Cadastro de usuário
-- [x] Criar uma Task
-- [x] Editar uma Task
-- [x] Deletar uma Task
-- [x] Dark theme
-- [ ] Adiconar importância da Task
+1. Backend <a href="https://github.com/LeandroTRibeiro/api-tasklist" target="_blank">Veja o repositório aqui!</a>
+2. Frontend
+
+💡 O Frontend precisa que o Backend esteja sendo executado para funcionar.
+
+🧭 Rodando a aplicação web (Frontend)
+
+```bash
+# clone o repositório
+$ git clone https://github.com/LeandroTRibeiro/tasklist-app
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd tasklist-app
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+```
+
+<h2 id="funcionalidades">⚙️ Funcionalidades</h2>
+
+- [x] Os usuários podem entrar na aplicação e:
+	- [x] Criar uma tarefa com ou sem descrição da mesma
+	- [x] Editar uma tarefa
+	- [x] Deletar uma tarefa
+	- [x] Marcar uma tarefa como feita
+	- [x] Pesquisar tarefas, pelo titulo ou parte dele
+	- [x] Ordenar as terefas por mais antigas ou recentes
+	- [x] Mudar o tema da aplicação
+	
+<h2 id="licenca">📝 Licença</h2>
+
+Este projeto está sobre a licença MIT - Veja o arquivo <a href="https://github.com/LeandroTRibeiro/tasklist-app/blob/main/LICENSE" target="_blank">LICENSE</a> para detalhes.
+
+<h2 id="autor">✒️ Autor</h2>
+
+<a href="https://github.com/LeandroTRibeiro">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/111009157?s=400&u=ccf989df0bb9cf41495186f2bc0564c1b03b0d4e&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Leandro Thiago Ribeiro</b></sub></a>👋
+ <br />
+ 
+[![GitHub Badge](https://img.shields.io/badge/-LeandroTRibeiro-black?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/LeandroTRibeiro)](https://github.com/LeandroTRibeiro)
+[![Linkedin Badge](https://img.shields.io/badge/-LeandroRibeiro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leandro-ribeiro-2a8a8b24b/)](https://www.linkedin.com/in/leandro-ribeiro-2a8a8b24b/) 
+[![Gmail Badge](https://img.shields.io/badge/-leandrothiago_ribeiro@hotmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:leandrothiago_ribeiro@hotmail.com)](mailto:leandrothiago_ribeiro@hotmail.com)
+
