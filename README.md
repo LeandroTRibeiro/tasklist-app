@@ -65,13 +65,13 @@ $ npm run dev
 <h2 id="funcionalidades">⚙️ Funcionalidades</h2>
 
 Após o usuário entrar na aplicação:
-	- [x] Criar uma tarefa com ou sem descrição da mesma
-	- [x] Editar uma tarefa
-	- [x] Deletar uma tarefa
-	- [x] Marcar uma tarefa como feita
-	- [x] Pesquisar tarefas, pelo título ou parte dele
-	- [x] Ordenar as tarefas por mais antigas ou recentes
-	- [x] Mudar o tema da aplicação
+- [x] Criar uma tarefa com ou sem descrição da mesma
+- [x] Editar uma tarefa
+- [x] Deletar uma tarefa
+- [x] Marcar uma tarefa como feita
+- [x] Pesquisar tarefas, pelo título ou parte dele
+- [x] Ordenar as tarefas por mais antigas ou recentes
+- [x] Mudar o tema da aplicação
 	
 <h2 id="licenca">📝 Licença</h2>
 
