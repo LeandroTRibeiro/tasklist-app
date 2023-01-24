@@ -16,17 +16,6 @@ export const TaskCard = (props: PropsItem) => {
         navigate(`/edit/${id}`);
     }
 
-    const handleDeleteTask = async (id: string) => {
-        const json = await Api.deleteTask(id);
-
-        
-        if(json.error) {
-            alert('Erro ao remover tarefa');
-        } else {
-            dispatch(setLoading(true));
-        }
-    }
-
     return(
 
         <div className={`form-control border-2 rounded-lg py-5 px-10 shadow-xl flex justify-between gap-5 ${props.data.done ? 'opacity-50' : ''} ${theme.status ? 'bg-white' : 'border-gray-800 bg-gray-700 text-gray-300'}`}>
@@ -40,7 +29,7 @@ export const TaskCard = (props: PropsItem) => {
                 </div>
                 <div className="flex justify-between mg:flex-col mg:gap-5">
                     <button className={`btn btn-primary ${theme.status ? '' : 'text-black'}`} onClick={() => handleEdit(props.data._id)}>editar</button>
-                    <button className="btn btn-warning" onClick={() => handleDeleteTask(props.data._id)}>deletar</button>
+                    <button className="btn btn-warning" onClick={() => props.onDelete(props.data._id)}>deletar</button>
                 </div>
             </div>
         </div>

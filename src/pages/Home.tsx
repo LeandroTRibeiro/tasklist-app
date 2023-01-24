@@ -25,18 +25,40 @@ export const Home = () => {
     const [errorSearch, setErrorSearch] = useState(false);
 
     useEffect(() => {
+        
         const loadList = async () => {
             const response = await Api.getAllTasks();
-            setList(response.tasks);
-            dispatch(setLoading(false));
             setSearch(false);
+            organizeList(response.tasks);
         }
 
         loadList();
 
     },[loading]);
 
-    const reverseList = [...list].reverse();
+    const organizeList = (list: ListType[]) => {
+
+        let first: ListType[];
+        let second: ListType[];
+        let correct: ListType[];
+
+        first = list.filter((item) => {
+            if(!item.done) {
+                return item;
+            } 
+        });
+
+        second = list.filter((item) => {
+            if(item.done) {
+                return item;
+            }
+        });
+
+        correct = [...first, ...second];
+
+        setList(correct);
+        dispatch(setLoading(false));
+    }
 
     const handleDoneChange = async (_id: string, done: boolean, title: string) => {
 
@@ -48,32 +70,33 @@ export const Home = () => {
             newDone = true;
         }
 
+        const changeDone = [...list];
+        changeDone.map((item) => {
+            if(item._id === _id) {
+                item.done = newDone;
+                setList(changeDone);
+            };
+        });
+
         const json = await Api.updateDone(_id, title, newDone);
 
         if(json.error) {
+            dispatch(setLoading(false));
             alert('erro');
-        } else {
-
-            const changeDone = [...list];
-            changeDone.map((item) => {
-                if(item._id === _id) {
-                    item.done = newDone;
-                    setList(changeDone);
-                };
-            });
-            
-        }
+        } 
         
     };
 
     const handleReverse = () => {
 
+        const reverseList = [...list].reverse();
+
         if (reverse.status) {
             dispatch(setReverse(false));
-
+            organizeList(reverseList);
         } else {
             dispatch(setReverse(true));
-
+            organizeList(reverseList);
         }
     };
 
@@ -91,10 +114,32 @@ export const Home = () => {
         }
     }
 
+    const handleDeleteTask = async (id: string) => {
+
+        let deleteItem = list.filter((item) => {
+            if(item._id != id) {
+                return item;
+            }
+        });
+
+        setList(deleteItem);
+        
+        const json = await Api.deleteTask(id);
+
+        if(json.error) {
+            alert('Erro ao remover tarefa');
+        }
+    }
+
     const changeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setInputSearch(e.target.value);
     }
+
+    const handleDeleteAlert = () => {
+        setErrorSearch(false);
+        setSearch(false);
+    };
 
     return(
         <div className={`flex justify-center pt-10 pb-10 ${theme.status ? 'bg-white' : 'bg-gray-800'}`}>
@@ -125,57 +170,36 @@ export const Home = () => {
                 </div>
 
                 {loading.status &&
-                    <button className="btn loading">loading</button>
+                    <div className="h-[100vh]">
+                        <button className="btn loading">loading</button>
+                    </div>
                 }
 
                 {!loading.status &&
                     <>
-                    {reverse.status &&
-                        <>
                         {search && errorSearch &&
-                            <SearchAlert />
-                        }
-
-                        {search && !errorSearch &&
-                            <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
-                                {searchList.map((item) => (
-                                    <TaskCard key={item._id} data={item} onDone={handleDoneChange}/>
-                                ))}
+                            <div className="w-full cursor-pointer" onClick={handleDeleteAlert}>
+                                <SearchAlert />
                             </div>
                         }
-                    
-                        <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
-                            {reverseList.map((item) => (
-                            
-                                <TaskCard key={item._id} data={item} onDone={handleDoneChange} />
-
-                            ))}
-                        </div>
-                        </>
-                    }
-
-                    {!reverse.status &&
-                        <>
-                        {search && errorSearch &&
-                            <SearchAlert />
-                        }
 
                         {search && !errorSearch &&
-                            <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
-                                {searchList.map((item) => (
-                                    <TaskCard key={item._id} data={item} onDone={handleDoneChange}/>
-                                ))}
+                            <div className="w-full flex flex-col gap-5 p-5 border-2 border-primary rounded-lg">
+                                <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5 ">
+                                    {searchList.map((item) => (
+                                        <TaskCard key={item._id} data={item} onDone={handleDoneChange} onDelete={handleDeleteTask}/>
+                                    ))}
+                                </div>
+                                <button className="btn btn-primary text-black" onClick={() => setSearch(false)}>Limpar Pesquisa</button>
                             </div>
                         }
                         <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
                             {list.map((item) => (
 
-                                <TaskCard key={item._id} data={item} onDone={handleDoneChange}/>
+                                <TaskCard key={item._id} data={item} onDone={handleDoneChange} onDelete={handleDeleteTask}/>
 
                             ))}
                         </div>
-                        </>
-                    }
                     </>
                 }
 
