@@ -8,7 +8,7 @@ export const Header = () => {
 
     return(
 
-        <div className={` flex justify-center ${theme.status ? 'bg-white' : 'bg-gray-700'}`}>
+        <div className={` flex justify-center ${theme.status ? 'bg-white' : 'bg-primary'}`}>
             <div className="mx:w-[280px] ms:w-[325px] mg:w-[425px] tb:w-[768px] w-[1024px] h-[80px] flex justify-between items-center">
                 <div className={theme.status ? "text-3xl font-bold text-primary" : "text-3xl font-bold text-black"}>
                     <Link to='/'>

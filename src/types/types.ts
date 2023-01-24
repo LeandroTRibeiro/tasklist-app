@@ -12,5 +12,6 @@ export type PropsItem = {
         description: string,
         done: boolean
     },
-    onDone: ( _id: string, done: boolean, title: string ) => void
+    onDone: ( _id: string, done: boolean, title: string ) => void,
+    onDelete: ( id: string ) => void,
 }

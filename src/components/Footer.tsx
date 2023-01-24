@@ -7,7 +7,7 @@ export const Footer = () => {
     const theme = useAppSelector(state => state.theme);
 
     return(
-        <footer className={`footer footer-center p-10 bg-primary text-primary-content pt-10 ${theme.status ? '' : "bg-gray-700 text-black"}`}>
+        <footer className={`footer footer-center p-10 bg-primary text-primary-content pt-10 ${theme.status ? '' : "bg-primary text-black"}`}>
             <div>
                 <h1 className="text-4xl font-bold">DevTasks</h1>
                 <p className="text-base">
