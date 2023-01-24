@@ -34,6 +34,7 @@ export const NewTask = () => {
         const json = await Api.createTask(title, description);
 
         if(json.error) {
+            dispatch(setLoading(false));
             setDisable(false);
             alert(json.error);
         } else {
@@ -50,7 +51,7 @@ export const NewTask = () => {
     return(
         <>
             {loading.status &&
-                <div className="h-[100vh] flex justify-center">
+                <div className={`h-[100vh] p-10 flex justify-center ${theme.status ? 'bg-white' : 'bg-gray-800'}`}>
                     <button className="btn loading">loading</button>
                 </div>
             }
