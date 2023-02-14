@@ -18,7 +18,7 @@
 <h2 id="demo">🕹️ Demo</h2>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cff2323a-f213-4823-a101-0d192876fd4d/deploy-status)](https://app.netlify.com/sites/inspiring-syrniki-2b818f/deploys)
-<br><a href="https://inspiring-syrniki-2b818f.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
+<br><a href="https://dev-tasks.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
 
 <h2 id="objetivo">📖 Objetivo</h2>
 <p>Objetivo principal deste projeto foi a criação de um Backend e Frontend que tivésse todas as funcionalidades de um CRUD.</p>
