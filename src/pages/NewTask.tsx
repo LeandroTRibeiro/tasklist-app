@@ -52,7 +52,7 @@ export const NewTask = () => {
         <>
             {loading.status &&
                 <div className={`h-[100vh] p-10 flex justify-center ${theme.status ? 'bg-white' : 'bg-gray-800'}`}>
-                    <button className="btn loading">loading</button>
+                    <button className="btn btn-primary loading">loading</button>
                 </div>
             }
             {!loading.status &&

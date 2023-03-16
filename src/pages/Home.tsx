@@ -171,7 +171,7 @@ export const Home = () => {
 
                 {loading.status &&
                     <div className="h-[100vh]">
-                        <button className="btn loading">loading</button>
+                        <button className="btn btn-primary loading">loading</button>
                     </div>
                 }
 
