@@ -18,7 +18,7 @@ export const TaskCard = (props: PropsItem) => {
 
     return(
 
-        <div className={`form-control border-2 rounded-lg py-5 px-10 shadow-xl flex justify-between gap-5 ${props.data.done ? 'opacity-50' : ''} ${theme.status ? 'bg-white' : 'border-gray-800 bg-gray-700 text-gray-300'}`}>
+        <div className={`form-control min-w-[300px] border-2 rounded-lg py-5 px-10 shadow-xl flex justify-between gap-5 ${props.data.done ? 'opacity-50' : ''} ${theme.status ? 'bg-white' : 'border-gray-800 bg-gray-700 text-gray-300'}`}>
             <label className="label cursor-pointer flex gap-5">
                 <input type="checkbox" className="checkbox checkbox-primary" checked={props.data.done ? true : false} onChange={() => props.onDone(props.data._id, props.data.done, props.data.title)}/>
                 <div className={`text-base font-semibold ${theme.status ? '' : 'text-gray-300'}`}>{props.data.title}</div>
