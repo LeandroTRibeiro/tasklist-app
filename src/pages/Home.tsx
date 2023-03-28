@@ -71,10 +71,19 @@ export const Home = () => {
         }
 
         const changeDone = [...list];
+        const searchListDone = [...searchList];
+
         changeDone.map((item) => {
             if(item._id === _id) {
                 item.done = newDone;
                 setList(changeDone);
+            };
+        });
+
+        searchListDone.map((item) => {
+            if(item._id === _id) {
+                item.done = newDone;
+                setSearchList(searchListDone);
             };
         });
 
@@ -171,7 +180,7 @@ export const Home = () => {
 
                 {loading.status &&
                     <div className="h-[100vh]">
-                        <button className="btn btn-primary loading">loading</button>
+                        <button className={`btn btn-primary loading ${theme.status ? '' : 'text-black'}`}>loading</button>
                     </div>
                 }
 
@@ -193,13 +202,23 @@ export const Home = () => {
                                 <button className="btn btn-primary text-black" onClick={() => setSearch(false)}>Limpar Pesquisa</button>
                             </div>
                         }
-                        <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
-                            {list.map((item) => (
+                        {list.length > 0 &&
+                            <div className="grid ms:grid-cols-1 mg:grid-cols-2 grid-cols-3 gap-5">
+                                {list.map((item) => (
 
-                                <TaskCard key={item._id} data={item} onDone={handleDoneChange} onDelete={handleDeleteTask}/>
+                                    <TaskCard key={item._id} data={item} onDone={handleDoneChange} onDelete={handleDeleteTask}/>
 
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        }
+                        {list.length <= 0 &&
+                            <div className={`flex flex-col items-center gap-2 border border-primary rounded-lg p-5 ${theme.status ? '' : 'text-gray-300'}`}>
+                                <h1 className="text-3xl font-bold text-primary">DevTasks</h1>
+                                <h2 className="font-semibold mt-[-5px]">Você não possui tarefas no momento!</h2>
+                                <p className="">Vamos começar?</p>
+                                <Link to='/newtask' className={` btn btn-primary ${theme.status ? '' : 'text-black'}`}>Adicionar Tarefa</Link>
+                            </div>
+                        }
                     </>
                 }
 
