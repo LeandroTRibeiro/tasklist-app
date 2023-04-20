@@ -11,10 +11,6 @@
  <a href="#autor">Autor</a>
 </p>
 
-<h4 align="center"> 
-	🚧  Em construção...  🚧
-</h4>
-
 <h2 id="demo">🕹️ Demo</h2>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cff2323a-f213-4823-a101-0d192876fd4d/deploy-status)](https://app.netlify.com/sites/inspiring-syrniki-2b818f/deploys)
