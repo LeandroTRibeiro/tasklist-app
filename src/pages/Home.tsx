@@ -212,11 +212,13 @@ export const Home = () => {
                             </div>
                         }
                         {list.length <= 0 &&
-                            <div className={`flex flex-col items-center gap-2 border border-primary rounded-lg p-5 ${theme.status ? '' : 'text-gray-300'}`}>
-                                <h1 className="text-3xl font-bold text-primary">DevTasks</h1>
-                                <h2 className="font-semibold mt-[-5px]">Você não possui tarefas no momento!</h2>
-                                <p className="">Vamos começar?</p>
-                                <Link to='/newtask' className={` btn btn-primary ${theme.status ? '' : 'text-black'}`}>Adicionar Tarefa</Link>
+                            <div className="p-20">
+                                <div className={`flex flex-col items-center gap-2 border border-primary rounded-lg p-5 ${theme.status ? '' : 'text-gray-300'}`}>
+                                    <h1 className="text-3xl font-bold text-primary">DevTasks</h1>
+                                    <h2 className="font-semibold mt-[-5px]">Você não possui tarefas no momento!</h2>
+                                    <p className="">Vamos começar?</p>
+                                    <Link to='/newtask' className={` btn btn-primary ${theme.status ? '' : 'text-black'}`}>Adicionar Tarefa</Link>
+                                </div>
                             </div>
                         }
                     </>
