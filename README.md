@@ -11,14 +11,10 @@
  <a href="#autor">Autor</a>
 </p>
 
-<h4 align="center"> 
-	🚧  Em construção...  🚧
-</h4>
-
 <h2 id="demo">🕹️ Demo</h2>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cff2323a-f213-4823-a101-0d192876fd4d/deploy-status)](https://app.netlify.com/sites/inspiring-syrniki-2b818f/deploys)
-<br><a href="https://inspiring-syrniki-2b818f.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
+<br><a href="https://dev-tasks.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
 
 <h2 id="objetivo">📖 Objetivo</h2>
 <p>Objetivo principal deste projeto foi a criação de um Backend e Frontend que tivésse todas as funcionalidades de um CRUD.</p>
@@ -64,28 +60,29 @@ $ npm run dev
 
 <h2 id="funcionalidades">⚙️ Funcionalidades</h2>
 
-- [x] Os usuários podem entrar na aplicação e:
-	- [x] Criar uma tarefa com ou sem descrição da mesma
-	- [x] Editar uma tarefa
-	- [x] Deletar uma tarefa
-	- [x] Marcar uma tarefa como feita
-	- [x] Pesquisar tarefas, pelo titulo ou parte dele
-	- [x] Ordenar as terefas por mais antigas ou recentes
-	- [x] Mudar o tema da aplicação
+Após o usuário entrar na aplicação:
+- [x] Criar uma tarefa com ou sem descrição da mesma
+- [x] Editar uma tarefa
+- [x] Deletar uma tarefa
+- [x] Marcar uma tarefa como feita
+- [x] Pesquisar tarefas, pelo título ou parte dele
+- [x] Ordenar as tarefas por mais antigas ou recentes
+- [x] Mudar o tema da aplicação
 	
 <h2 id="licenca">📝 Licença</h2>
 
-Este projeto está sobre a licença MIT - Veja o arquivo <a href="https://github.com/LeandroTRibeiro/tasklist-app/blob/main/LICENSE" target="_blank">LICENSE</a> para detalhes.
+Este projeto está sobre a licença MIT 
+> Veja o arquivo [LINCENSE](https://github.com/LeandroTRibeiro/tasklist-app/blob/main/LICENSE)
 
 <h2 id="autor">✒️ Autor</h2>
 
 <a href="https://github.com/LeandroTRibeiro">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/111009157?s=400&u=ccf989df0bb9cf41495186f2bc0564c1b03b0d4e&v=4" width="100px;" alt=""/>
  <br />
- <sub><b>Leandro Thiago Ribeiro</b></sub></a>👋
+ <sub><b>Leandro Thiago Ribeiro </b></sub></a>👋
  <br />
  
 [![GitHub Badge](https://img.shields.io/badge/-LeandroTRibeiro-black?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/LeandroTRibeiro)](https://github.com/LeandroTRibeiro)
-[![Linkedin Badge](https://img.shields.io/badge/-LeandroRibeiro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leandro-ribeiro-2a8a8b24b/)](https://www.linkedin.com/in/leandro-ribeiro-2a8a8b24b/) 
+[![Linkedin Badge](https://img.shields.io/badge/-LeandroRibeiro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ribeiro-leandro/)](https://www.linkedin.com/in/ribeiro-leandro/) 
 [![Gmail Badge](https://img.shields.io/badge/-leandrothiago_ribeiro@hotmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:leandrothiago_ribeiro@hotmail.com)](mailto:leandrothiago_ribeiro@hotmail.com)
 
