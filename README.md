@@ -1,5 +1,5 @@
-<h1 align="center">DevTasks</h1>
-<p align="center">Frontend de minha lista de tarefas</p>
+<h1 align="center">devtasks</h1>
+<p align="center">O caderno de tarefas: um PWA que funciona offline e sincroniza entre aparelhos</p>
 
 <p align="center">
  <a href="#demo">Demo</a> •
@@ -17,45 +17,41 @@
 <br><a href="https://dev-tasks.netlify.app" target="_blank">Teste minha aplicação aqui!</a>
 
 <h2 id="objetivo">📖 Objetivo</h2>
-<p>Objetivo principal deste projeto foi a criação de um Backend e Frontend que tivésse todas as funcionalidades de um CRUD.</p>
+<p>Uma lista de tarefas com cara de caderno, que abre sem internet, é instalável como app e mantém as tarefas de cada pessoa separadas, sem precisar de login. Começou como um CRUD de estudo e foi refeita em 2026 com animações em GSAP.</p>
 
 <h2 id="tecnologias">🛠 Tecnologias</h2>
 
-As seguintes ferramentas foram usadas na construção do projeto:
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) + [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) (service worker e manifesto)
+- [GSAP](https://gsap.com/) com [@gsap/react](https://gsap.com/resources/React), Flip e DrawSVG
+- Fontes Young Serif, Figtree e Caveat, incluídas no projeto
 
-- [React](https://pt-br.reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Axios](https://axios-http.com/)
-- [React Router Dom](https://reactrouter.com/en/main)
-- [React Redux](https://react-redux.js.org/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [Daisyui](https://daisyui.com/)
-
-> Veja o arquivo  [package.json](https://github.com/LeandroTRibeiro/tasklist-app/blob/main/package.json)
+> Veja o arquivo [package.json](https://github.com/LeandroTRibeiro/tasklist-app/blob/main/package.json)
 
 <h2 id="implantacao">📦 Implantação</h2>
 
-Este projeto é dividio em duas partes:
+Este projeto é dividido em duas partes:
 
 1. Backend <a href="https://github.com/LeandroTRibeiro/api-tasklist" target="_blank">Veja o repositório aqui!</a>
-2. Frontend
+2. Frontend (este repositório)
 
-💡 O Frontend precisa que o Backend esteja sendo executado para funcionar.
+💡 O app funciona sozinho no aparelho; a API só é usada para sincronizar. Em desenvolvimento ele procura a API em `http://localhost:2000` e, no build de produção, em `https://api-tasklist.onrender.com`. Para outro endereço, defina `VITE_API_URL`.
 
-🧭 Rodando a aplicação web (Frontend)
+🧭 Rodando o app
 
 ```bash
 # clone o repositório
 $ git clone https://github.com/LeandroTRibeiro/tasklist-app
-
-# Acesse a pasta do projeto no seu terminal/cmd
 $ cd tasklist-app
 
-# Instale as dependências
+# instale as dependências
 $ npm install
 
-# Execute a aplicação em modo de desenvolvimento
+# desenvolvimento
 $ npm run dev
+
+# build de produção (gera a pasta dist com o service worker)
+$ npm run build && npm run preview
 ```
 
 <h2 id="funcionalidades">⚙️ Funcionalidades</h2>
