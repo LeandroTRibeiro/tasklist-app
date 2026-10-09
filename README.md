@@ -36,6 +36,8 @@ Este projeto é dividido em duas partes:
 
 💡 O app funciona sozinho no aparelho; a API só é usada para sincronizar. Em desenvolvimento ele procura a API em `http://localhost:2000` e, no build de produção, em `https://api-tasklist.onrender.com`. Para outro endereço, defina `VITE_API_URL`.
 
+Use Node.js 24 (versão definida em `.nvmrc` e `package.json`).
+
 🧭 Rodando o app
 
 ```bash
@@ -43,8 +45,8 @@ Este projeto é dividido em duas partes:
 $ git clone https://github.com/LeandroTRibeiro/tasklist-app
 $ cd tasklist-app
 
-# instale as dependências
-$ npm install
+# instale as versões registradas no lockfile
+$ npm ci
 
 # desenvolvimento
 $ npm run dev
@@ -52,6 +54,14 @@ $ npm run dev
 # build de produção (gera a pasta dist com o service worker)
 $ npm run build && npm run preview
 ```
+
+### Deploy no Netlify
+
+O arquivo `.nvmrc` seleciona Node.js 24, inclusive nos deploy previews. O
+`netlify.toml` define `npm run build` e a publicação da pasta `dist`.
+Depois de enviar essas configurações ao Git, execute um novo deploy. Confirme
+no início do log que o Netlify está usando Node 24; versões antigas podem falhar
+na inicialização do Vite com `crypto.getRandomValues is not a function`.
 
 <h2 id="funcionalidades">⚙️ Funcionalidades</h2>
 
