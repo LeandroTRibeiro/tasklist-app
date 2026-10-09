@@ -1,17 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { registerSW } from 'virtual:pwa-register';
 import App from './App';
-import './index.css';
+import './styles.css';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
+// Caches the app so it opens without internet, and updates it in the background.
+registerSW({ immediate: true });
+
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
         <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
-)
+    </StrictMode>,
+);
